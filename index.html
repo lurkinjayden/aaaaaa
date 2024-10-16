@@ -16,56 +16,51 @@
 
     <link rel="preload" as="font" href="src/fonts/terminus-webfont.woff2" type="font/woff2" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="css\style.css">
+    <link rel="stylesheet" href="css/style.css">
 
-    <meta proberty="og:title" content="Cisnt.tools">
-    <meta proberty="og:description" content="">
-    <meta proberty="og:image" content="">
-    <meta proberty="og:url" content="">
+    <!-- Corrected 'property' typo in Open Graph meta tags -->
+    <meta property="og:title" content="Cisnt.tools">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
 
 </head>
 
 <body>
-    <video preload="none" onloadstart="this.playbackRate = 0.65;" autoplay muted loop playsinline id="noise_vid" src="https://files.catbox.moe/hop8wg.mp4" poster="/src/media/noise_static.png"></video>
+    <video preload="none" onloadstart="this.playbackRate = 0.65;" autoplay muted loop playsinline id="noise_vid" src="https://files.catbox.moe/hop8wg.mp4" poster="src/media/noise_static.png"></video>
 
-    <video preload="none" onloadstart="this.playbackRate = 0.85;" autoplay muted loop playsinline id="rain_vid" src="https://files.catbox.moe/i7le27.mp4" poster="/src/media/rain_bg_static.png"></video>
+    <video preload="none" onloadstart="this.playbackRate = 0.85;" autoplay muted loop playsinline id="rain_vid" src="https://files.catbox.moe/i7le27.mp4" poster="src/media/rain_bg_static.png"></video>
 
     <div class="clickToEnter" id="clickToEnter">
         <h6>(Click to Enter)</h6>
     </div>
 
     <audio id="audio">
-	<source src="Assets/audio.mp3" type="audio/mpeg">
-	Your browser does not support the audio tag.
-</audio>
+        <source src="Assets/audio.mp3" type="audio/mpeg">
+        Your browser does not support the audio tag.
+    </audio>
 
     <script>
-        const audioFiles = [
-            'assets/Audio.mp3',
-        ];
-
+        const audioFiles = ['assets/audio.mp3'];
         const randomIndex = Math.floor(Math.random() * audioFiles.length);
         const audioElement = document.getElementById('audio');
         audioElement.src = audioFiles[randomIndex];
 
         const clickToEnter = document.getElementById('clickToEnter');
-
         clickToEnter.addEventListener('click', () => {
             audioElement.volume = 0.6;
             audioElement.play().catch(error => {
                 console.log("Audio playback failed:", error);
             });
             clickToEnter.style.display = 'none';
-        }, {
-            once: true
-        });
+        }, { once: true });
     </script>
 
     <div class="vignette"></div>
 
     <div id="videohue"></div>
     <div id="canvas">
-        <center></center><header>
+        <header>
             <pre id="title">
      :::::::::: ::::::::: :::::::::::      ::::::::  :::    ::: :::::::::  :::::::::   ::::::::  ::::::::: ::::::::::: 
      :+:        :+:    :+:    :+:         :+:    :+: :+:    :+: :+:    :+: :+:    :+: :+:    :+: :+:    :+:    :+:     
@@ -74,70 +69,35 @@
      +#+        +#+    +#+    +#+                +#+ +#+    +#+ +#+        +#+        +#+    +#+ +#+    +#+    +#+     
      #+#        #+#    #+#    #+#     #+# #+#    #+# #+#    #+# #+#        #+#        #+#    #+# #+#    #+#    #+#     
      ###        ######### ########### ###  ########   ########  ###        ###         ########  ###    ###    ###     
-			</pre>
+            </pre>
             <h1 id="sub_title">"MONEY BY ANY MEANS"</h1>
-        </header></center>
-        <br>
-        <p></p>
+        </header>
+
         <nav id="nav_tabs">
             <ul>
                 <li><a href="#home" class="tab_switcher" id="home_tab">Home</a></li>
             </ul>
         </nav>
+
         <div id="home" class="tabs">
             <div class="grid">
                 <div class="grid_row">
                     <div class="grid_row_box">
                         <h2>Welcome visitor!</h2>
                         <p><em>Updated on AUGUST 8TH, 2024</em></p>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
                         <p>The Cool Guys</p>
-                        <br>
-                        <br>
+
                         <p class="contact_link"><i class="fa-brands fa-github fa-fw"></i> Rinko: <a href="https://t.me/rinko" target="_blank">https://t.me/maou</a></p>
-                        <br>
-                        <br>
-                        <br>
                         <p class="contact_link"><i class="fa-brands fa-github fa-fw"></i> Leakage: <a href="https://t.me/misosophy" target="_blank">https://t.me/misosophy</a></p>
-                        <br>
-                        <br>
-                        <br>
                         <p class="contact_link"><i class="fa-brands fa-github fa-fw"></i> Null: <a href="https://t.me/temp817" target="_blank">https://t.me/temp817</a></p>
-                        <br>
-                        <br>
-                        <br>
-                    </div>
-                    <div class="grid_row_box grid_row_box_shrink">
-                        <div id="theme_selector">
-                            <div id="theme_list">
-                                <p class="ascii-art">⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⣿⣿⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⣿⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⢀⣾⣿⣿⣿⣿⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⣿⣿⣿⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⣾⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⠀⠀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣇⠀⠀⠀⠀⠀⠀⠀⢀⣿⣿⣿⣿⣿⣿⣿⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⠀⢰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⠀⠀⠀⠀⠀⠀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣷⠀⠀⠀⠀⠀⠀⠀⠀
-                                    ⠀⠀⠀⠀⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⢰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⠀⠀⠀⢀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣇⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠈⣿⣿⣿⣿⣿⣿⠟⠉⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀⠀⠙⢻⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
-                                    ⠀⠀⠀⠀⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⣠⣄⠀⢻⣿⣿⣿⣿⣿⣿⡿⠀⣠⣄⠀⠀⠀⢻⣿⣿⣏⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⣾⣿⣿⣿⣿⠀⠀⠀⠀⠰⣿⣿⠀⢸⣿⣿⣿⣿⣿⣿⡇⠀⣿⣿⡇⠀⠀⢸⣿⣿⣿⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⣿⣿⣿⣿⣿⣄⠀⠀⠀⠀⠙⠃⠀⣼⣿⣿⣿⣿⣿⣿⣇⠀⠙⠛⠁⠀⠀⣼⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣷⣤⣄⣀⣠⣤⣾⣿⣿⣿⣿⣽⣿⣿⣦⣄⣀⣀⣤⣾⣿⣿⣿⣿⠃⠀⠀⢀⣀⠀⠀ ⠰⡶⠶⠶⠶⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠛⠉⠉⠙⠛⠋⠀ ⠀⠀⠀⢀⣀⣠⣤⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠷⠶⠶⠶⢤⣤⣀⠀
-                                    ⠀⠛⠋⠉⠁⠀⣀⣴⡿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣯⣤⣀⡀⠀⠀⠀⠀⠘⠃ ⠀⠀⠀⢀⣤⡶⠟⠉⠁⠀⠀⠉⠛⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠟⠉⠀⠀⠀⠉⠙⠳⠶⣄⡀⠀⠀ ⠀⠀⠀⠙⠁⠀⠀⠀⠀⠀⠀⢰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠁⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-                                    ⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⠀⠀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⠀⣰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⢰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-                                    ⠀⠀⠀⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-                                </p>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="showcase" class="tabs">
-            <div id="showcase_list">
-                </nav>
-                <div class="row">
-                    <img loading="lazy" src="">
-                    <video loading="lazy" src="assets/showcase.mov" controls onclick="window.open('assets/showcase.mov', '_blank')" preload="auto" width="1000" height="500"></video>
-                    <img loading="lazy" src="">
-                </div>
-            </div>
-        </div>
+
     </div>
-    </div>
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"8d34430ebedc4cef","version":"2024.10.1","r":1,"token":"b36da36f9e4947669ee5d1bb63a8c54a","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}}}'
-        crossorigin="anonymous"></script>
+
+    <div class="vignette"></div>
 </body>
+
+</html>
