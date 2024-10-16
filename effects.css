@@ -33,3 +33,21 @@ td {
 #noise_vid {
     display: block;
 } 
+
+.grid_row_box {
+    padding: 10px; /* Adjust this padding to control the internal spacing */
+}
+
+.contact_link {
+    margin-bottom: 100px; /* This can still be used for external spacing */
+}
+
+
+
+.grid_row_box p:first-of-type {
+    margin-bottom: 50px; /* Space after 'The Cool Guys' */
+}
+
+.grid_row_box p:nth-of-type(2) {
+    margin-bottom: 50px; /* Space after the first link 'Rinko' */
+}
