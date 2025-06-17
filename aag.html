@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="my 1 & only maryam">
+    <meta property="og:description" content="its crazy how much i love maryam">
+    <meta property="og:image" content="pic1.png">
+    <title>maryam</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            cursor: none;
+        }
+
+        #container {
+            display: none;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .photo-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+        }
+
+        .photo {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, margin-left 0.3s;
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo:hover {
+            transform: scale(1.1);
+            margin-left: -50px;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .overlay::before {
+            content: '';
+            position: absolute;
+            width: 3px;
+            height: 0%;
+            background-color: white;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: height 0.3s;
+        }
+
+        .photo:hover .overlay {
+            opacity: 1;
+        }
+
+        .photo:hover .overlay::before {
+            height: 100%;
+        }
+
+        .paragraph {
+            width: 250px;
+            color: white;
+            font-size: 12px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .photo-container:hover .paragraph {
+            opacity: 1;
+        }
+
+        .cursor {
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            pointer-events: none;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
+            z-index: 9999;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 2rem;
+            color: red;
+            pointer-events: none;
+            opacity: 1;
+            animation: shrinkFade 0.5s forwards;
+        }
+
+        @keyframes shrinkFade {
+            from {
+                opacity: 1;
+                transform: scale(1);
+            }
+            to {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+        }
+
+        #enter-button {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: black;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 20px 40px;
+            border: 2px solid white;
+            border-radius: 25px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+            animation: pulse 2s infinite;
+            transition: opacity 0.3s ease-in-out;
+            cursor: none;
+            z-index: 1000;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+                box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button id="enter-button">Press to Enter</button>
+
+    <div id="container">
+        <div class="photo-container">
+            <div class="photo">
+                <img src="pic1.png" alt="jayden x maryam">
+                <div class="overlay">💕</div>
+            </div>
+            <div class="paragraph">your kiss fills me with warmth</div>
+        </div>
+
+        <div class="photo-container">
+            <div class="photo">
+                <img src="pic2.png" alt="jayden x maryam">
+                <div class="overlay">💕</div>
+            </div>
+            <div class="paragraph">i wanna feel your lips on mine</div>
+        </div>
+
+        <div class="photo-container">
+            <div class="photo">
+                <img src="pic3.png" alt="jayden x maryam">
+                <div class="overlay">💕</div>
+            </div>
+            <div class="paragraph">dance with me under the moonlight</div>
+        </div>
+
+        <div class="photo-container">
+            <div class="photo">
+                <img src="pic4.png" alt="jayden x maryam">
+                <div class="overlay">💕</div>
+            </div>
+            <div class="paragraph">all i need in life is you</div>
+        </div>
+    </div>
+
+    <div class="cursor" id="custom-cursor"></div>
+
+    <script>
+        const customCursor = document.getElementById('custom-cursor');
+        customCursor.innerText = '💘';
+
+        const enterButton = document.getElementById('enter-button');
+        const container = document.getElementById('container');
+        const songs = ['song1.mp3', 'song2.mp3'];
+
+        function playRandomSong() {
+            const randomSong = songs[Math.floor(Math.random() * songs.length)];
+            const audio = new Audio(randomSong);
+            audio.play();
+        }
+
+        enterButton.addEventListener('click', () => {
+            enterButton.style.opacity = '0';
+            setTimeout(() => {
+                enterButton.style.display = 'none';
+                container.style.display = 'flex';
+                playRandomSong();
+            }, 300);
+        });
+
+        let heartTimeout = null;
+        const heartDelay = 100;
+
+        document.body.addEventListener('mousemove', (e) => {
+            customCursor.style.left = e.pageX - 16 + 'px';
+            customCursor.style.top = e.pageY - 16 + 'px';
+
+            if (!heartTimeout) {
+                heartTimeout = setTimeout(() => {
+                    createHeart(e.pageX, e.pageY);
+                    heartTimeout = null;
+                }, heartDelay);
+            }
+        });
+
+        document.body.addEventListener('touchmove', (e) => {
+            const touch = e.touches[0];
+            customCursor.style.left = touch.pageX - 16 + 'px';
+            customCursor.style.top = touch.pageY - 16 + 'px';
+
+            if (!heartTimeout) {
+                heartTimeout = setTimeout(() => {
+                    createHeart(touch.pageX, touch.pageY);
+                    heartTimeout = null;
+                }, heartDelay);
+            }
+        });
+
+        function createHeart(x, y) {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            const offsetX = Math.random() * 30 - 15;
+            const offsetY = Math.random() * 30 - 15;
+            heart.style.left = (x + offsetX) + 'px';
+            heart.style.top = (y + offsetY) + 'px';
+            heart.innerText = '❤️';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 500);
+        }
+    </script>
+</body>
+</html>
